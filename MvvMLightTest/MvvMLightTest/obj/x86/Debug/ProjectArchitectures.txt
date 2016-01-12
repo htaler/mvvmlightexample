@@ -1,1 +1,1 @@
-C:\Users\HTA\documents\visual studio 2015\Projects\MvvMLightTest\MvvMLightTest\MvvMLightTest.csproj;x86
+c:\code\mvvmlightexample\MvvMLightTest\MvvMLightTest\MvvMLightTest.csproj;x86

@@ -5,11 +5,26 @@
     xmlns:local="using:MvvMLightTest"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    DataContext="{Binding Main, Source={StaticResource Locator}}">
+  
+    mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <StackPanel DataContext="{Binding PersonViewModel, Source={StaticResource Locator}}">
+       
+        <Button Content="Load persons" Width="200" Height="50" Command="{Binding LoadPersonsCommand}"></Button>
+
+        <Button Content="Save persons" Width="200" Height="50" Command="{Binding SavePersonsCommand}"></Button>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="ID" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentPerson.ID}" />
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Name" />
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CurrentPerson.Name}" />
+       
+
+    </StackPanel>
+
+    <!--<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBlock Text="{Binding MSG}" FontSize="50"/>
-    </Grid>
+    </Grid>-->
 </Page>
 
