@@ -1,7 +1,9 @@
 ﻿using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Practices.ServiceLocation;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +16,12 @@ namespace MvvMLightTest.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
+            Messenger.Default.Register<NotificationMessage>(this, NotifyUserMethod);
+        }
+
+        private void NotifyUserMethod(NotificationMessage message)
+        {
+            Debug.WriteLine("Message received: " + message.Notification);
         }
 
         public MainViewModel Main
