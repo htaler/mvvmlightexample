@@ -16,6 +16,7 @@ namespace MvvMLightTest.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<PersonViewModel>();
             Messenger.Default.Register<NotificationMessage>(this, NotifyUserMethod);
         }
 
@@ -29,6 +30,14 @@ namespace MvvMLightTest.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public PersonViewModel PersonViewModel
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<PersonViewModel>();
             }
         }
 

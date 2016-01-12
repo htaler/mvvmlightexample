@@ -132,23 +132,29 @@ namespace MvvMLightTest.MvvMLightTest_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[7];
+            _typeNameTable = new string[10];
             _typeNameTable[0] = "MvvMLightTest.ViewModel.ViewModelLocator";
             _typeNameTable[1] = "Object";
             _typeNameTable[2] = "MvvMLightTest.ViewModel.MainViewModel";
-            _typeNameTable[3] = "MvvMLightTest.MainPage";
-            _typeNameTable[4] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[5] = "Windows.UI.Xaml.Controls.UserControl";
-            _typeNameTable[6] = "MvvMLightTest.MainView";
+            _typeNameTable[3] = "MvvMLightTest.ViewModel.PersonViewModel";
+            _typeNameTable[4] = "GalaSoft.MvvmLight.ViewModelBase";
+            _typeNameTable[5] = "GalaSoft.MvvmLight.ObservableObject";
+            _typeNameTable[6] = "MvvMLightTest.MainPage";
+            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[8] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[9] = "MvvMLightTest.MainView";
 
-            _typeTable = new global::System.Type[7];
+            _typeTable = new global::System.Type[10];
             _typeTable[0] = typeof(global::MvvMLightTest.ViewModel.ViewModelLocator);
             _typeTable[1] = typeof(global::System.Object);
             _typeTable[2] = typeof(global::MvvMLightTest.ViewModel.MainViewModel);
-            _typeTable[3] = typeof(global::MvvMLightTest.MainPage);
-            _typeTable[4] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[5] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
-            _typeTable[6] = typeof(global::MvvMLightTest.MainView);
+            _typeTable[3] = typeof(global::MvvMLightTest.ViewModel.PersonViewModel);
+            _typeTable[4] = typeof(global::GalaSoft.MvvmLight.ViewModelBase);
+            _typeTable[5] = typeof(global::GalaSoft.MvvmLight.ObservableObject);
+            _typeTable[6] = typeof(global::MvvMLightTest.MainPage);
+            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[9] = typeof(global::MvvMLightTest.MainView);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -185,8 +191,10 @@ namespace MvvMLightTest.MvvMLightTest_XamlTypeInfo
 
         private object Activate_0_ViewModelLocator() { return new global::MvvMLightTest.ViewModel.ViewModelLocator(); }
         private object Activate_2_MainViewModel() { return new global::MvvMLightTest.ViewModel.MainViewModel(); }
-        private object Activate_3_MainPage() { return new global::MvvMLightTest.MainPage(); }
-        private object Activate_6_MainView() { return new global::MvvMLightTest.MainView(); }
+        private object Activate_3_PersonViewModel() { return new global::MvvMLightTest.ViewModel.PersonViewModel(); }
+        private object Activate_5_ObservableObject() { return new global::GalaSoft.MvvmLight.ObservableObject(); }
+        private object Activate_6_MainPage() { return new global::MvvMLightTest.MainPage(); }
+        private object Activate_9_MainView() { return new global::MvvMLightTest.MainView(); }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -202,6 +210,7 @@ namespace MvvMLightTest.MvvMLightTest_XamlTypeInfo
                 userType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
                 userType.Activator = Activate_0_ViewModelLocator;
                 userType.AddMemberName("Main");
+                userType.AddMemberName("PersonViewModel");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -217,24 +226,42 @@ namespace MvvMLightTest.MvvMLightTest_XamlTypeInfo
                 xamlType = userType;
                 break;
 
-            case 3:   //  MvvMLightTest.MainPage
-                userType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_3_MainPage;
+            case 3:   //  MvvMLightTest.ViewModel.PersonViewModel
+                userType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ViewModelBase"));
+                userType.SetIsReturnTypeStub();
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 4:   //  Windows.UI.Xaml.Controls.Page
-                xamlType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 4:   //  GalaSoft.MvvmLight.ViewModelBase
+                userType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("GalaSoft.MvvmLight.ObservableObject"));
+                xamlType = userType;
                 break;
 
-            case 5:   //  Windows.UI.Xaml.Controls.UserControl
-                xamlType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+            case 5:   //  GalaSoft.MvvmLight.ObservableObject
+                userType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.Activator = Activate_5_ObservableObject;
+                xamlType = userType;
                 break;
 
-            case 6:   //  MvvMLightTest.MainView
+            case 6:   //  MvvMLightTest.MainPage
                 userType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainView;
+                userType.Activator = Activate_6_MainPage;
+                userType.SetIsLocalType();
+                xamlType = userType;
+                break;
+
+            case 7:   //  Windows.UI.Xaml.Controls.Page
+                xamlType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Windows.UI.Xaml.Controls.UserControl
+                xamlType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  MvvMLightTest.MainView
+                userType = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
+                userType.Activator = Activate_9_MainView;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -248,6 +275,11 @@ namespace MvvMLightTest.MvvMLightTest_XamlTypeInfo
             var that = (global::MvvMLightTest.ViewModel.ViewModelLocator)instance;
             return that.Main;
         }
+        private object get_1_ViewModelLocator_PersonViewModel(object instance)
+        {
+            var that = (global::MvvMLightTest.ViewModel.ViewModelLocator)instance;
+            return that.PersonViewModel;
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
         {
@@ -260,6 +292,12 @@ namespace MvvMLightTest.MvvMLightTest_XamlTypeInfo
                 userType = (global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MvvMLightTest.ViewModel.ViewModelLocator");
                 xamlMember = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlMember(this, "Main", "MvvMLightTest.ViewModel.MainViewModel");
                 xamlMember.Getter = get_0_ViewModelLocator_Main;
+                xamlMember.SetIsReadOnly();
+                break;
+            case "MvvMLightTest.ViewModel.ViewModelLocator.PersonViewModel":
+                userType = (global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MvvMLightTest.ViewModel.ViewModelLocator");
+                xamlMember = new global::MvvMLightTest.MvvMLightTest_XamlTypeInfo.XamlMember(this, "PersonViewModel", "MvvMLightTest.ViewModel.PersonViewModel");
+                xamlMember.Getter = get_1_ViewModelLocator_PersonViewModel;
                 xamlMember.SetIsReadOnly();
                 break;
             }

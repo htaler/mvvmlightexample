@@ -1,1 +1,1 @@
-c:\code\mvvmlightexample\MvvMLightTest\MvvMLightTest\MvvMLightTest.csproj;x86
+C:\code\mvvmlightexample\MvvMLightTest\MvvMLightTest\MvvMLightTest.csproj;x86

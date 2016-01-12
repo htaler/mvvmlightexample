@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using MvvMLightTest.Model;
 using System.Windows.Input;
 using GalaSoft.MvvmLight.Messaging;
+using GalaSoft.MvvmLight.Command;
 
 namespace MvvMLightTest.ViewModel
 {
@@ -18,7 +19,8 @@ namespace MvvMLightTest.ViewModel
 
         public PersonViewModel()
         {
-
+            LoadPersonsCommand = new RelayCommand(LoadPersonsMethod);
+            SavePersonsCommand = new RelayCommand(SavePersonMethod);
         }
 
         public ICommand LoadPersonsCommand { get; set; }
@@ -53,7 +55,9 @@ namespace MvvMLightTest.ViewModel
         public void LoadPersonsMethod()
         {
             persons = Person.GetSamplePersons();
+            this.currentPerson = persons[0];
             this.RaisePropertyChanged(() => this.PersonList);
+            this.RaisePropertyChanged(() => this.CurrentPerson);
             Messenger.Default.Send<NotificationMessage>(new NotificationMessage("Persons loaded"));
         }
 

@@ -413,3 +413,4 @@ c:\code\mvvmlightexample\MvvMLightTest\MvvMLightTest\obj\x86\Debug\qualifiers.tx
 c:\code\mvvmlightexample\MvvMLightTest\MvvMLightTest\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 c:\code\mvvmlightexample\MvvMLightTest\MvvMLightTest\obj\x86\Debug\GalaSoft.MvvmLight.Platform.pri.xml
 c:\code\mvvmlightexample\MvvMLightTest\MvvMLightTest\obj\x86\Debug\ProjectArchitectures.txt
+C:\code\mvvmlightexample\MvvMLightTest\MvvMLightTest\obj\x86\Debug\Microsoft.Practices.ServiceLocation\en-US\Microsoft.Practices.ServiceLocation.Properties.Resources.resw
