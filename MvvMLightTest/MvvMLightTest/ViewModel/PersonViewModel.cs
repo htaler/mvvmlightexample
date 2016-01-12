@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using MvvMLightTest.Model;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace MvvMLightTest.ViewModel
 {
@@ -42,6 +43,18 @@ namespace MvvMLightTest.ViewModel
                 currentPerson = value;
                 RaisePropertyChanged("CurrentPerson");
             }
+        }
+
+        public void SavePersonMethod()
+        {
+            Messenger.Default.Send<NotificationMessage>(new NotificationMessage("Person saved"));
+        }
+
+        public void LoadPersonsMethod()
+        {
+            persons = Person.GetSamplePersons();
+            this.RaisePropertyChanged(() => this.PersonList);
+            Messenger.Default.Send<NotificationMessage>(new NotificationMessage("Persons loaded"));
         }
 
 
