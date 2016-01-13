@@ -15,7 +15,7 @@
         <Button Content="Save persons" Width="200" Height="50" Command="{Binding SavePersonsCommand}"></Button>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="ID" />
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentPerson.ID}" />
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CurrentPerson.ID}"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Name" />
         <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CurrentPerson.Name}" />

@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Data.Xml.Dom;
+using Windows.UI.Notifications;
 
 namespace MvvMLightTest.ViewModel
 {
@@ -22,6 +24,17 @@ namespace MvvMLightTest.ViewModel
 
         private void NotifyUserMethod(NotificationMessage message)
         {
+            XmlDocument toastXML = ToastNotificationManager.GetTemplateContent(ToastTemplateType.ToastText01);
+            ToastNotification toast = new ToastNotification(toastXML);
+
+            XmlNodeList stringElements = toastXML.GetElementsByTagName("text");
+            for (int i = 0; i < stringElements.Length; i++)
+            {
+                stringElements[i].AppendChild(toastXML.CreateTextNode("Message received: " + message.Notification));
+            }
+
+            ToastNotificationManager.CreateToastNotifier().Show(toast);
+
             Debug.WriteLine("Message received: " + message.Notification);
         }
 
